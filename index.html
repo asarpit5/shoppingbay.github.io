@@ -1,0 +1,1628 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Shopping Bay</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="img/goods.png">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+    <link rel="stylesheet" href="css/ShoppingBay.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="css/font-awesome-animation.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/brands.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/regular.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Girassol&display=swap" rel="stylesheet">
+  </head>
+
+<body class="goto-here">
+
+<div class="modal fade" id="signupModal" tabindex="-1", role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header" style="background-color: #fff">
+				<h5 class="modal-title"  style="color: #030c08">Register Here</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="close" style="color: #000">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<form  class="form" method="post" id="signupform" autocomplete="off">
+					<div class="form-group">
+					<input type="text" id="sigupName" class="form-control" placeholder="Name" width="40%" required="required">
+				</div>
+				<div class="form-group">
+					<input type="tel" id="sigupContact" class="form-control" placeholder="Contact" width="40%" maxlength="10" minlength="10" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+        required="required">
+				</div>
+					<div class="form-group">
+					<input type="Email" id="signupEmail" class="form-control" placeholder="Email" width="40%" required="required">
+				</div>
+					<div class="form-group">
+					<input type="Password" id="signupPwd" class="form-control" placeholder="Password"  width="40%" minlength="6" required="required">
+				</div>
+				<div class="form-group">
+				<button type="Submit" id="registerButton" class="btn btn-dark"  width="40%">Register</button>
+			</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" id="loginModal" tabindex="-1", role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header" style="background-color: #fff">
+				<h5 class="modal-title"  style="color: #030c08">LogIn/SignUp</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="close" style="color: #000">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<form  class="form" method="post" id="loginform" autocomplete="off">
+					<div class="form-group">
+					<input type="Email" id="loginEmail" class="form-control" placeholder="Email" width="40%">
+				</div>
+					<div class="form-group">
+					<input type="Password" id="loginPwd" class="form-control" placeholder="Password" width="40%">
+				</div>
+				<div class="form-group">
+				<p><a href="" style="color: black;" class="pull-right">Forgot Password?</a></p>
+			</div>
+				<div class="form-group">
+				<a href="#" id="loginButton" class="btn btn-dark"  width="40%" onclick="loginSubmit()">Login</a>
+			</div>
+			<p>or <a href="#signupModal" style="color: black;" onclick="loginClose()">Create an Account</a></p>
+				
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-light ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+	      <h class="navbar-brand" style="color: black;border:2px solid #000;border-right: 5px;border-left: 5px"><i class="fa fa-shopping-bag"></i>&nbsp;Shopping Bay</h>
+	      <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+
+	      <div class="collapse navbar-collapse" id="ftco-nav" style="background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(47,31,31,0.9416141456582633) 54%, rgba(128,134,135,1) 100%);"> 
+	        <ul class="navbar-nav ml-auto">
+	          <li class="nav-item active"><a href="home.html" class="nav-link" style="font-size: 11px;color: white">Home</a></li>
+	          <li class="nav-item"><a href="#offerZone" class="nav-link" style="font-size: 11px;color: white">Offer Zone</a></li>
+	          <li class="nav-item"><a href="#featuredProducts" class="nav-link" style="font-size: 11px;color: white">Featured Products</a></li>
+	          <li class="nav-item"><a href="#Products" class="nav-link" style="font-size: 11px;color: white">Products</a></li>
+	          <li class="nav-item"><a href="#aboutUs" class="nav-link" style="font-size: 11px;color: white">About Us</a></li>
+	          <li class="nav-item">
+	          	<a href="#loginModal" class="nav-link" data-toggle="modal" style="font-size: 11px;color: white">Register/LogIn</a></li>
+	          <li class="nav-item"><a href="paymentpage.html" class="nav-link" style="font-size: 11px;color: white"><span class=" fa fa-shopping-cart" onclick="showCart()"></span></a></li>
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+	  
+    <div class="container">
+	    <form autocomplete="off" style="margin-bottom: 10px">
+				<input type="Search" class="inputSearch" autocomplete="off" placeholder="Search for more products.." id="SearchBar">&nbsp;
+				<button type="button" class="btn btn-dark bt" id="SearchButton" onclick="Search()"><i class="fa fa-search"></i></button>
+		</form>
+	 </div>
+
+	 <section id="home-section" class="hero">
+  	<div class="carousel slide ml-auto mr-auto " id="homeCarousel" data-ride="carousel" data-interval="3000">
+	<ol class="carousel-indicators">
+		<li data-target="#homeCarousel" data-slide-to="0" class="active" style="background-color: grey"></li>
+		<li data-target="#homeCarousel" data-slide-to="1" style="background-color: grey"></li>
+		<li data-target="#homeCarousel" data-slide-to="2" style="background-color: grey"></li>
+		<li data-target="#homeCarousel" data-slide-to="3" style="background-color: grey"></li>
+
+	</ol>
+
+	<div class="carousel-inner" role="listbox">
+		<div class="carousel-item active">
+			<img class="d-block w-100" src="img/Mobile/Mobile5 - Copy.jpg" alt="First Slide">
+			
+		</div>
+		<div class="carousel-item">
+			<img class="d-block w-100" src="img/Mobile/Mobile6 - Copy.jpg" alt="Second Slide">
+		</div>
+		<div class="carousel-item">
+			<img class="d-block w-100" src="img/Mobile/Mobile7 - Copy.png" alt="Third Slide">
+			
+		</div>
+
+		<div class="carousel-item">
+			<img class="d-block w-100" src="img/Mobile/Mobile8 - Copy.jpg" alt="Fourth Slide">
+			
+		</div>
+	</div>
+
+	<a class="carousel-control-prev" href="#homeCarousel" role="button" data-slide="prev">
+		<span class="carousel-control-prev-icon" aria-hidden="true" style="background-color: grey">
+			<span class="sr-only">Previous</span>
+        </span>
+	</a>
+	<a class="carousel-control-next" href="#homeCarousel" role="button" data-slide="next">
+		<span class="carousel-control-next-icon" aria-hidden="true" style="background-color: grey">
+			<span class="sr-only">Next</span>
+        </span>
+	</a>
+</div>
+  </section><br>
+
+  <section class="ftco-section ftco-choose ftco-no-pb ftco-no-pt">
+    	<div class="container">
+    		<div class="row">
+    			<div class="col-md-6 d-flex align-items-stretch">
+    				<div class="img" style="background-image: url(img/sale1.jpg);"></div>
+    			</div>
+    			<div class="col-md-2">
+    				</div>
+    			<div class="col-md-4 py-md-5 ftco-animate">
+    				<div class="text py-3 py-md-5">
+	            <h2 class="mb-4">Mega Sale</h2>
+	            <p>Grab the best opportunity to get flat 50% off on the purchase of selected items.
+	             Hurry Up before this deal ends.</p>
+	            <p><a href="#" class="btn btn-white px-4 py-3">Shop now</a></p>
+    				</div>
+    			</div>
+    		</div>
+
+    		<div class="row">
+    			<div class="col-md-8 order-md-last d-flex align-items-stretch">
+    				<div class="img img-2" style="background-image: url(img/fridaySale.jpg);"></div>
+    			</div>
+    			<div class="col-md-4 py-3 py-md-5 ftco-animate">
+    				<div class="text text-2 py-md-5">
+	            <h2 class="mb-4">friday Sale</h2>
+	            <p>Grab the best opportunity to get flat 50% off on the purchase of selected items.
+	             Hurry Up before this deal ends.</p>
+	            <p><a href="#" class="btn btn-white px-4 py-3">Shop now</a></p>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </section>
+
+    <section  class="ftco-section" id="offerZone">
+    	<div class="container">
+		<div class="row">
+          <div class="col-md-3 heading-section text-center ftco-animate" style="padding-bottom: -20px">
+            <h2 class="mb-4 offerStyle">Offer Zone</h2>
+          </div>
+          	<div class="col-md-9 bg-dark">
+	</div>
+      </div>
+    </div><br>
+    <hr>
+
+    <div class="container">
+    	<div class="owl-carousel owl-theme owl-a">
+  
+    <div class="item">
+      <div class="product">
+              <a class="img-prod"><img class="img-fluid" src="img/Laptop/HP4.png" alt="Colorlib Template">
+                <span class="status">10%</span>
+                <div class="overlay"></div>
+              </a>
+              <div class="text py-3 px-3">
+                <h3><a href="#">HP ENVY Laptop-17t</a></h3>
+                <div class="d-flex">
+                  <div class="pricing">
+                    <p class="price"><span class="mr-2 price-dc">95,499&nbsp;<span>&#8377;</span></span><span class="price-sale">93,499&nbsp;<span>&#8377;</span></span></p>
+                  </div>
+                </div>
+                <p class="bottom-area d-flex px-3">
+                  <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                  <a href="#" class="buy-now text-center py-2">View now<span><i class="ion-ios-cart ml-1"></i></span></a>
+                </p>
+              </div>
+            </div>
+    </div>
+    <div class="item">
+      <div class="product">
+              <a class="img-prod"><img class="img-fluid" src="img/Laptop/HP2.png" alt="Colorlib Template">
+                <span class="status">10%</span>
+                <div class="overlay"></div>
+              </a>
+              <div class="text py-3 px-3">
+                <h3><a href="#">HP Pavilion 15</a></h3>
+                <div class="d-flex">
+                  <div class="pricing">
+                    <p class="price"><span class="mr-2 price-dc">1,01,943&nbsp;<span>&#8377;</span></span><span class="price-sale">99,943&nbsp;<span>&#8377;</span></span></p>
+                  </div>
+                </div>
+                <p class="bottom-area d-flex px-3">
+                  <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                  <a href="#" class="buy-now text-center py-2">view now<span><i class="ion-ios-cart ml-1"></i></span></a>
+                </p>
+              </div>
+            </div>
+    </div>
+    <div class="item">
+      <div class="product">
+              <a class="img-prod"><img class="img-fluid" src="img/Laptop/HP5.png" alt="Colorlib Template">
+                <span class="status">10%</span>
+                <div class="overlay"></div>
+              </a>
+              <div class="text py-3 px-3">
+                <h3><a href="#">OMEN Laptop-15</a></h3>
+                <div class="d-flex">
+                  <div class="pricing">
+                    <p class="price"><span class="mr-2 price-dc">64,599&nbsp;<span>&#8377;</span></span><span class="price-sale">62,599&nbsp;<span>&#8377;</span></span></p>
+                  </div>
+                </div>
+                <p class="bottom-area d-flex px-3">
+                  <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                  <a href="#" class="buy-now text-center py-2">view now<span><i class="ion-ios-cart ml-1"></i></span></a>
+                </p>
+              </div>
+            </div>
+    </div>
+    <div class="item">
+      <div class="product">
+              <a class="img-prod"><img class="img-fluid" src="img/Laptop/x360.jpg" alt="Colorlib Template">
+                <span class="status">10%</span>
+                <div class="overlay"></div>
+              </a>
+              <div class="text py-3 px-3">
+                <h3><a href="#">HP Pavilion x360</a></h3>
+                <div class="d-flex">
+                  <div class="pricing">
+                    <p class="price"><span class="mr-2 price-dc">63,000&nbsp;<span>&#8377;</span></span><span class="price-sale">61,199&nbsp;<span>&#8377;</span></span></p>
+                  </div>
+                </div>
+                <p class="bottom-area d-flex px-3">
+                  <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                  <a href="#" class="buy-now text-center py-2">view now<span><i class="ion-ios-cart ml-1"></i></span></a>
+                </p>
+              </div>
+            </div>
+    </div>
+    <div class="item">
+      <div class="product">
+              <a class="img-prod"><img class="img-fluid" src="img/Laptop/HP3.png" alt="Colorlib Template">
+                <span class="status">10%</span>
+                <div class="overlay"></div>
+              </a>
+              <div class="text py-3 px-3">
+                <h3><a href="#">HP Pavilion Gaming</a></h3>
+                <div class="d-flex">
+                  <div class="pricing">
+                    <p class="price"><span class="mr-2 price-dc">73,141&nbsp;<span>&#8377;</span></span><span class="price-sale">71,141&nbsp;<span>&#8377;</span></span></p>
+                  </div>
+                </div>
+                <p class="bottom-area d-flex px-3">
+                  <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                  <a href="#" class="buy-now text-center py-2">view now<span><i class="ion-ios-cart ml-1"></i></span></a>
+                </p>
+              </div>
+            </div>
+    </div>
+    <div class="item">
+      <div class="product">
+              <a class="img-prod"><img class="img-fluid" src="img/Laptop/HP6.png" alt="Colorlib Template">
+                <span class="status">10%</span>
+                <div class="overlay"></div>
+              </a>
+              <div class="text py-3 px-3">
+                <h3><a href="#">HP ENVY-13</a></h3>
+                <div class="d-flex">
+                  <div class="pricing">
+                    <p class="price"><span class="mr-2 price-dc">69,990&nbsp;<span>&#8377;</span></span><span class="price-sale">67,999&nbsp;<span>&#8377;</span></span></p>
+                  </div>
+                </div>
+                <p class="bottom-area d-flex px-3">
+                  <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                  <a href="#" class="buy-now text-center py-2">view now<span><i class="ion-ios-cart ml-1"></i></span></a>
+                </p>
+              </div>
+            </div>
+    </div>
+    <div class="item">
+      <div class="product">
+              <a class="img-prod"><img class="img-fluid" src="img/Laptop/HP7.png" alt="Colorlib Template">
+                <span class="status">10%</span>
+                <div class="overlay"></div>
+              </a>
+              <div class="text py-3 px-3">
+                <h3><a href="#">HP ENVY 13" PC</a></h3>
+                <div class="d-flex">
+                  <div class="pricing">
+                    <p class="price"><span class="mr-2 price-dc">48,450&nbsp;<span>&#8377;</span></span><span class="price-sale">46,450&nbsp;<span>&#8377;</span></span></p>
+                  </div>
+                </div>
+                <p class="bottom-area d-flex px-3">
+                  <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                  <a href="#" class="buy-now text-center py-2">view now<span><i class="ion-ios-cart ml-1"></i></span></a>
+                </p>
+              </div>
+            </div>
+    </div>
+    <div class="item">
+      <div class="product">
+              <a class="img-prod"><img class="img-fluid" src="img/Laptop/HP8.png" alt="Colorlib Template">
+                <span class="status">10%</span>
+                <div class="overlay"></div>
+              </a>
+              <div class="text py-3 px-3">
+                <h3><a href="#">HP EliteBook x360 830 G6</a></h3>
+                <div class="d-flex">
+                  <div class="pricing">
+                    <p class="price"><span class="mr-2 price-dc">1,15,740.00&nbsp;<span>&#8377;</span></span><span class="price-sale">1,13,740.00&nbsp;<span>&#8377;</span></span></p>
+                  </div>
+                </div>
+                <p class="bottom-area d-flex px-3">
+                  <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                  <a href="#" class="buy-now text-center py-2">view now<span><i class="ion-ios-cart ml-1"></i></span></a>
+                </p>
+              </div>
+            </div>
+    </div>
+    <div class="item">
+      <div class="product">
+              <a class="img-prod"><img class="img-fluid" src="img/Laptop/HP9.png" alt="Colorlib Template">
+                <span class="status">10%</span>
+                <div class="overlay"></div>
+              </a>
+              <div class="text py-3 px-3">
+                <h3><a href="#">HP Laptop-17t touch</a></h3>
+                <div class="d-flex">
+                  <div class="pricing">
+                    <p class="price"><span class="mr-2 price-dc">95,499&nbsp;<span>&#8377;</span></span><span class="price-sale">93,499&nbsp;<span>&#8377;</span></span></p>
+                  </div>
+                </div>
+                <p class="bottom-area d-flex px-3">
+                  <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                  <a href="#" class="buy-now text-center py-2">view now<span><i class="ion-ios-cart ml-1"></i></span></a>
+                </p>
+              </div>
+            </div>
+    </div>
+    <div class="item">
+      <div class="product">
+              <a class="img-prod"><img class="img-fluid" src="img/Laptop/HP10.png" alt="Colorlib Template">
+                <span class="status">10%</span>
+                <div class="overlay"></div>
+              </a>
+              <div class="text py-3 px-3">
+                <h3><a href="#">HP EliteBook 850 G6</a></h3>
+                <div class="d-flex">
+                  <div class="pricing">
+                    <p class="price"><span class="mr-2 price-dc">110,590&nbsp;<span>&#8377;</span></span><span class="price-sale">109,190&nbsp;<span>&#8377;</span></span></p>
+                  </div>
+                </div>
+                <p class="bottom-area d-flex px-3">
+                  <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                  <a href="#" class="buy-now text-center py-2">view now<span><i class="ion-ios-cart ml-1"></i></span></a>
+                </p>
+              </div>
+            </div>
+    </div>
+    <div class="item">
+      <div class="product">
+              <a class="img-prod"><img class="img-fluid" src="img/Laptop/HP11.png" alt="Colorlib Template">
+                <span class="status">10%</span>
+                <div class="overlay"></div>
+              </a>
+              <div class="text py-3 px-3">
+                <h3><a href="#">HP ProBook 650 G5</a></h3>
+                <div class="d-flex">
+                  <div class="pricing">
+                    <p class="price"><span class="mr-2 price-dc">23,390&nbsp;<span>&#8377;</span></span><span class="price-sale">22,990&nbsp;<span>&#8377;</span></span></p>
+                  </div>
+                </div>
+                <p class="bottom-area d-flex px-3">
+                  <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                  <a href="#" class="buy-now text-center py-2">view now<span><i class="ion-ios-cart ml-1"></i></span></a>
+                </p>
+              </div>
+            </div>
+    </div>
+    <div class="item">
+      <div class="product">
+              <a class="img-prod"><img class="img-fluid" src="img/Laptop/HP12.png" alt="Colorlib Template">
+                <span class="status">10%</span>
+                <div class="overlay"></div>
+              </a>
+              <div class="text py-3 px-3">
+                <h3><a href="#">HP EliteBook 850 G5</a></h3>
+                <div class="d-flex">
+                  <div class="pricing">
+                    <p class="price"><span class="mr-2 price-dc">127,460&nbsp;<span>&#8377;</span></span><span class="price-sale">125,460&nbsp;<span>&#8377;</span></span></p>
+                  </div>
+                </div>
+                <p class="bottom-area d-flex px-3">
+                  <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                  <a href="#" class="buy-now text-center py-2">view now<span><i class="ion-ios-cart ml-1"></i></span></a>
+                </p>
+              </div>
+            </div>
+    </div>
+</div>
+    </div><br>
+
+    <div class="container">
+    	<div class="owl-carousel owl-theme owl-a">
+    <div class="item">
+      <div class="product">
+              <a class="img-prod"><img class="img-fluid" src="img/Mobile/samsung1.jpeg" alt="Colorlib Template">
+                <span class="status">10%</span>
+                <div class="overlay"></div>
+              </a>
+              <div class="text py-3 px-3">
+                <h3><a href="#">Samsung Galaxy A51</a></h3>
+                <div class="d-flex">
+                  <div class="pricing">
+                    <p class="price"><span class="mr-2 price-dc">23,999&nbsp;<span>&#8377;</span></span><span class="price-sale">22,999&nbsp;<span>&#8377;</span></span></p>
+                  </div>
+                </div>
+                <p class="bottom-area d-flex px-3">
+                  <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                  <a href="#" class="buy-now text-center py-2">View now<span><i class="ion-ios-cart ml-1"></i></span></a>
+                </p>
+              </div>
+            </div>
+    </div>
+    <div class="item">
+      <div class="product">
+              <a class="img-prod"><img class="img-fluid" src="img/Mobile/samsung2.jpeg" alt="Colorlib Template">
+                <span class="status">10%</span>
+                <div class="overlay"></div>
+              </a>
+              <div class="text py-3 px-3">
+                <h3><a href="#">Samsung Galaxy S10 Lite</a></h3>
+                <div class="d-flex">
+                  <div class="pricing">
+                    <p class="price"><span class="mr-2 price-dc">42,099&nbsp;<span>&#8377;</span></span><span class="price-sale">40,099&nbsp;<span>&#8377;</span></span></p>
+                  </div>
+                </div>
+                <p class="bottom-area d-flex px-3">
+                  <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                  <a href="#" class="buy-now text-center py-2">view now<span><i class="ion-ios-cart ml-1"></i></span></a>
+                </p>
+              </div>
+            </div>
+    </div>
+    <div class="item">
+      <div class="product">
+              <a class="img-prod"><img class="img-fluid" src="img/Mobile/samsung3.jpeg" alt="Colorlib Template">
+                <span class="status">10%</span>
+                <div class="overlay"></div>
+              </a>
+              <div class="text py-3 px-3">
+                <h3><a href="#">Samsung Galaxy M30s</a></h3>
+                <div class="d-flex">
+                  <div class="pricing">
+                    <p class="price"><span class="mr-2 price-dc">12,999&nbsp;<span>&#8377;</span></span><span class="price-sale">12,499&nbsp;<span>&#8377;</span></span></p>
+                  </div>
+                </div>
+                <p class="bottom-area d-flex px-3">
+                  <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                  <a href="#" class="buy-now text-center py-2">view now<span><i class="ion-ios-cart ml-1"></i></span></a>
+                </p>
+              </div>
+            </div>
+    </div>
+    <div class="item">
+      <div class="product">
+              <a class="img-prod"><img class="img-fluid" src="img/Mobile/samsung4.jpeg" alt="Colorlib Template">
+                <span class="status">10%</span>
+                <div class="overlay"></div>
+              </a>
+              <div class="text py-3 px-3">
+                <h3><a href="#">Samsung Galaxy S20+</a></h3>
+                <div class="d-flex">
+                  <div class="pricing">
+                    <p class="price"><span class="mr-2 price-dc">73,999&nbsp;<span>&#8377;</span></span><span class="price-sale">71,999&nbsp;<span>&#8377;</span></span></p>
+                  </div>
+                </div>
+                <p class="bottom-area d-flex px-3">
+                  <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                  <a href="#" class="buy-now text-center py-2">view now<span><i class="ion-ios-cart ml-1"></i></span></a>
+                </p>
+              </div>
+            </div>
+    </div>
+    <div class="item">
+      <div class="product">
+              <a class="img-prod"><img class="img-fluid" src="img/Mobile/mi1.jpeg" alt="Colorlib Template">
+                <span class="status">10%</span>
+                <div class="overlay"></div>
+              </a>
+              <div class="text py-3 px-3">
+                <h3><a href="#">Mi Mix 2</a></h3>
+                <div class="d-flex">
+                  <div class="pricing">
+                    <p class="price"><span class="mr-2 price-dc">29,999&nbsp;<span>&#8377;</span></span><span class="price-sale">27,499&nbsp;<span>&#8377;</span></span></p>
+                  </div>
+                </div>
+                <p class="bottom-area d-flex px-3">
+                  <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                  <a href="#" class="buy-now text-center py-2">view now<span><i class="ion-ios-cart ml-1"></i></span></a>
+                </p>
+              </div>
+            </div>
+    </div>
+    <div class="item">
+      <div class="product">
+              <a class="img-prod"><img class="img-fluid" src="img/Mobile/mi2.jpeg" alt="Colorlib Template">
+                <span class="status">10%</span>
+                <div class="overlay"></div>
+              </a>
+              <div class="text py-3 px-3">
+                <h3><a href="#">Redmi 8</a></h3>
+                <div class="d-flex">
+                  <div class="pricing">
+                    <p class="price"><span class="mr-2 price-dc">7,999&nbsp;<span>&#8377;</span></span><span class="price-sale">7,499&nbsp;<span>&#8377;</span></span></p>
+                  </div>
+                </div>
+                <p class="bottom-area d-flex px-3">
+                  <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                  <a href="#" class="buy-now text-center py-2">view now<span><i class="ion-ios-cart ml-1"></i></span></a>
+                </p>
+              </div>
+            </div>
+    </div>
+    <div class="item">
+      <div class="product">
+              <a class="img-prod"><img class="img-fluid" src="img/Mobile/mi3.jpeg" alt="Colorlib Template">
+                <span class="status">10%</span>
+                <div class="overlay"></div>
+              </a>
+              <div class="text py-3 px-3">
+                <h3><a href="#">Redmi 8A</a></h3>
+                <div class="d-flex">
+                  <div class="pricing">
+                    <p class="price"><span class="mr-2 price-dc">7,348&nbsp;<span>&#8377;</span></span><span class="price-sale">6,948&nbsp;<span>&#8377;</span></span></p>
+                  </div>
+                </div>
+                <p class="bottom-area d-flex px-3">
+                  <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                  <a href="#" class="buy-now text-center py-2">view now<span><i class="ion-ios-cart ml-1"></i></span></a>
+                </p>
+              </div>
+            </div>
+    </div>
+    <div class="item">
+      <div class="product">
+              <a class="img-prod"><img class="img-fluid" src="img/Mobile/mi4.jpeg" alt="Colorlib Template">
+                <span class="status">10%</span>
+                <div class="overlay"></div>
+              </a>
+              <div class="text py-3 px-3">
+                <h3><a href="#">Redmi Note 6 Pro</a></h3>
+                <div class="d-flex">
+                  <div class="pricing">
+                    <p class="price"><span class="mr-2 price-dc">9,789&nbsp;<span>&#8377;</span></span><span class="price-sale">9,289&nbsp;<span>&#8377;</span></span></p>
+                  </div>
+                </div>
+                <p class="bottom-area d-flex px-3">
+                  <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                  <a href="#" class="buy-now text-center py-2">view now<span><i class="ion-ios-cart ml-1"></i></span></a>
+                </p>
+              </div>
+            </div>
+    </div>
+</div>
+    </div><br>
+    
+       <div class="container">
+    	<div class="owl-carousel owl-theme owl-a">
+    <div class="item">
+      <div class="product">
+              <a class="img-prod"><img class="img-fluid" src="img/Tv/tv1.jpeg" alt="Colorlib Template">
+                <span class="status">10%</span>
+                <div class="overlay"></div>
+              </a>
+              <div class="text py-3 px-3">
+                <h3><a href="#">Samsung 65 inch Ultra HD</a></h3>
+                <div class="d-flex">
+                  <div class="pricing">
+                    <p class="price"><span class="mr-2 price-dc">43,000&nbsp;<span>&#8377;</span></span><span class="price-sale">40,000&nbsp;<span>&#8377;</span></span></p>
+                  </div>
+                </div>
+                <p class="bottom-area d-flex px-3">
+                  <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                  <a href="#" class="buy-now text-center py-2">view now<span><i class="ion-ios-cart ml-1"></i></span></a>
+                </p>
+              </div>
+            </div>
+    </div>
+    <div class="item">
+      <div class="product">
+              <a class="img-prod"><img class="img-fluid" src="img/Tv/tv2.jpeg" alt="Colorlib Template">
+                <span class="status">10%</span>
+                <div class="overlay"></div>
+              </a>
+              <div class="text py-3 px-3">
+                <h3><a href="#">Samsung 49 inch Full HD</a></h3>
+                <div class="d-flex">
+                  <div class="pricing">
+                    <p class="price"><span class="mr-2 price-dc">43,000&nbsp;<span>&#8377;</span></span><span class="price-sale">40,000&nbsp;<span>&#8377;</span></span></p>
+                  </div>
+                </div>
+                <p class="bottom-area d-flex px-3">
+                  <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                  <a href="#" class="buy-now text-center py-2">view now<span><i class="ion-ios-cart ml-1"></i></span></a>
+                </p>
+              </div>
+            </div>
+    </div>
+    <div class="item">
+      <div class="product">
+              <a class="img-prod"><img class="img-fluid" src="img/Tv/tv3.jpeg" alt="Colorlib Template">
+                <span class="status">10%</span>
+                <div class="overlay"></div>
+              </a>
+              <div class="text py-3 px-3">
+                <h3><a href="#">Samsung N4200 32 inch</a></h3>
+                <div class="d-flex">
+                  <div class="pricing">
+                    <p class="price"><span class="mr-2 price-dc">43,000&nbsp;<span>&#8377;</span></span><span class="price-sale">40,000&nbsp;<span>&#8377;</span></span></p>
+                  </div>
+                </div>
+                <p class="bottom-area d-flex px-3">
+                  <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                  <a href="#" class="buy-now text-center py-2">view now<span><i class="ion-ios-cart ml-1"></i></span></a>
+                </p>
+              </div>
+            </div>
+    </div>
+    <div class="item">
+      <div class="product">
+              <a class="img-prod"><img class="img-fluid" src="img/Tv/tv4.jpeg" alt="Colorlib Template">
+                <span class="status">10%</span>
+                <div class="overlay"></div>
+              </a>
+              <div class="text py-3 px-3">
+                <h3><a href="#">Samsung 43 inch Ultra HD</a></h3>
+                <div class="d-flex">
+                  <div class="pricing">
+                    <p class="price"><span class="mr-2 price-dc">43,000&nbsp;<span>&#8377;</span></span><span class="price-sale">40,000&nbsp;<span>&#8377;</span></span></p>
+                  </div>
+                </div>
+                <p class="bottom-area d-flex px-3">
+                  <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                  <a href="#" class="buy-now text-center py-2">view now<span><i class="ion-ios-cart ml-1"></i></span></a>
+                </p>
+              </div>
+            </div>
+    </div>
+    <div class="item">
+      <div class="product">
+              <a class="img-prod"><img class="img-fluid" src="img/Tv/tv5.jpeg" alt="Colorlib Template">
+                <span class="status">10%</span>
+                <div class="overlay"></div>
+              </a>
+              <div class="text py-3 px-3">
+                <h3><a href="#">Samsung 50 inch Ultra HD</a></h3>
+                <div class="d-flex">
+                  <div class="pricing">
+                    <p class="price"><span class="mr-2 price-dc">43,000&nbsp;<span>&#8377;</span></span><span class="price-sale">40,000&nbsp;<span>&#8377;</span></span></p>
+                  </div>
+                </div>
+                <p class="bottom-area d-flex px-3">
+                  <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                  <a href="#" class="buy-now text-center py-2">view now<span><i class="ion-ios-cart ml-1"></i></span></a>
+                </p>
+              </div>
+            </div>
+    </div>
+    <div class="item">
+      <div class="product">
+              <a class="img-prod"><img class="img-fluid" src="img/Tv/tv6.jpeg" alt="Colorlib Template">
+                <span class="status">10%</span>
+                <div class="overlay"></div>
+              </a>
+              <div class="text py-3 px-3">
+                <h3><a href="#">LG 43 inch Full HD</a></h3>
+                <div class="d-flex">
+                  <div class="pricing">
+                    <p class="price"><span class="mr-2 price-dc">43,000&nbsp;<span>&#8377;</span></span><span class="price-sale">40,000&nbsp;<span>&#8377;</span></span></p>
+                  </div>
+                </div>
+                <p class="bottom-area d-flex px-3">
+                  <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                  <a href="#" class="buy-now text-center py-2">view now<span><i class="ion-ios-cart ml-1"></i></span></a>
+                </p>
+              </div>
+            </div>
+    </div>
+    <div class="item">
+      <div class="product">
+              <a class="img-prod"><img class="img-fluid" src="img/Tv/tv7.jpeg" alt="Colorlib Template">
+                <span class="status">10%</span>
+                <div class="overlay"></div>
+              </a>
+              <div class="text py-3 px-3">
+                <h3><a href="#">LG 43 inch Ultra HD </a></h3>
+                <div class="d-flex">
+                  <div class="pricing">
+                    <p class="price"><span class="mr-2 price-dc">43,000&nbsp;<span>&#8377;</span></span><span class="price-sale">40,000&nbsp;<span>&#8377;</span></span></p>
+                  </div>
+                </div>
+                <p class="bottom-area d-flex px-3">
+                  <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                  <a href="#" class="buy-now text-center py-2">view now<span><i class="ion-ios-cart ml-1"></i></span></a>
+                </p>
+              </div>
+            </div>
+    </div>
+    <div class="item">
+      <div class="product">
+              <a class="img-prod"><img class="img-fluid" src="img/Tv/tv8.jpeg" alt="Colorlib Template">
+                <span class="status">10%</span>
+                <div class="overlay"></div>
+              </a>
+              <div class="text py-3 px-3">
+                <h3><a href="#">LG 65 inch Ultra HD</a></h3>
+                <div class="d-flex">
+                  <div class="pricing">
+                    <p class="price"><span class="mr-2 price-dc">43,000&nbsp;<span>&#8377;</span></span><span class="price-sale">40,000&nbsp;<span>&#8377;</span></span></p>
+                  </div>
+                </div>
+                <p class="bottom-area d-flex px-3">
+                  <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                  <a href="#" class="buy-now text-center py-2">view now<span><i class="ion-ios-cart ml-1"></i></span></a>
+                </p>
+              </div>
+            </div>
+    </div>
+</div>
+    </div>
+       	<hr>
+</section>
+
+<section style="background-color: white" id="featuredProducts">
+	<div class="container">
+		<div class="row">
+	<div class="col-md-8 bg-dark">
+	</div>
+          <div class="col-md-4 heading-section text-center ftco-animate" style="padding-bottom: -20px">
+            <h2 class="mb-4 offerStyle">Featured Products</h2>
+          </div>
+      </div>
+    </div><br>
+
+<div class="container">
+    	<div class="owl-carousel owl-theme owl-a">
+            <div class="item">
+      <div class="product">
+              <a class="img-prod"><img class="img-fluid" src="img/Laptop/HP4.png" alt="Colorlib Template">
+                <!--<span class="status">10%</span>-->
+                <div class="overlay"></div>
+              </a>
+              <div class="text py-3 px-3">
+                <h3><a href="#">HP ENVY Laptop-17t</a></h3>
+                <div class="d-flex">
+                  <div class="pricing">
+                    <p class="price"><span class="price-sale">40,000&nbsp;<span>&#8377;</span></span></p>
+                  </div>
+                </div>
+                <p class="bottom-area d-flex px-3">
+                  <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                  <a href="#" class="buy-now text-center py-2">View now<span><i class="ion-ios-cart ml-1"></i></span></a>
+                </p>
+              </div>
+            </div>
+    </div>
+    <div class="item">
+      <div class="product">
+              <a class="img-prod"><img class="img-fluid" src="img/Laptop/HP2.png" alt="Colorlib Template">
+                <!--<span class="status">10%</span>-->
+                <div class="overlay"></div>
+              </a>
+              <div class="text py-3 px-3">
+                <h3><a href="#">HP Pavilion 15</a></h3>
+                <div class="d-flex">
+                  <div class="pricing">
+                    <p class="price"><span class="price-sale">40,000&nbsp;<span>&#8377;</span></span></p>
+                  </div>
+                </div>
+                <p class="bottom-area d-flex px-3">
+                  <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                  <a href="#" class="buy-now text-center py-2">view now<span><i class="ion-ios-cart ml-1"></i></span></a>
+                </p>
+              </div>
+            </div>
+    </div>
+    <div class="item">
+      <div class="product">
+              <a class="img-prod"><img class="img-fluid" src="img/Laptop/HP5.png" alt="Colorlib Template">
+                <!--<span class="status">10%</span>-->
+                <div class="overlay"></div>
+              </a>
+              <div class="text py-3 px-3">
+                <h3><a href="#">OMEN Laptop-15</a></h3>
+                <div class="d-flex">
+                  <div class="pricing">
+                    <p class="price"><span class="price-sale">40,000&nbsp;<span>&#8377;</span></span></p>
+                  </div>
+                </div>
+                <p class="bottom-area d-flex px-3">
+                  <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                  <a href="#" class="buy-now text-center py-2">view now<span><i class="ion-ios-cart ml-1"></i></span></a>
+                </p>
+              </div>
+            </div>
+    </div>
+    <div class="item">
+      <div class="product">
+              <a class="img-prod"><img class="img-fluid" src="img/Laptop/HP2.png" alt="Colorlib Template">
+                <!--<span class="status">10%</span>-->
+                <div class="overlay"></div>
+              </a>
+              <div class="text py-3 px-3">
+                <h3><a href="#">HP Pavilion 15</a></h3>
+                <div class="d-flex">
+                  <div class="pricing">
+                    <p class="price"><span class="price-sale">40,000&nbsp;<span>&#8377;</span></span></p>
+                  </div>
+                </div>
+                <p class="bottom-area d-flex px-3">
+                  <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                  <a href="#" class="buy-now text-center py-2">view now<span><i class="ion-ios-cart ml-1"></i></span></a>
+                </p>
+              </div>
+            </div>
+    </div>
+    <div class="item">
+      <div class="product">
+              <a class="img-prod"><img class="img-fluid" src="img/Laptop/HP3.png" alt="Colorlib Template">
+                <!--<span class="status">10%</span>-->
+                <div class="overlay"></div>
+              </a>
+              <div class="text py-3 px-3">
+                <h3><a href="#">HP Pavilion Gaming</a></h3>
+                <div class="d-flex">
+                  <div class="pricing">
+                    <p class="price"><span class="price-sale">40,000&nbsp;<span>&#8377;</span></span></p>
+                  </div>
+                </div>
+                <p class="bottom-area d-flex px-3">
+                  <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                  <a href="#" class="buy-now text-center py-2">view now<span><i class="ion-ios-cart ml-1"></i></span></a>
+                </p>
+              </div>
+            </div>
+    </div>
+    <div class="item">
+      <div class="product">
+              <a class="img-prod"><img class="img-fluid" src="img/Laptop/HP6.png" alt="Colorlib Template">
+                <!--<span class="status">10%</span>-->
+                <div class="overlay"></div>
+              </a>
+              <div class="text py-3 px-3">
+                <h3><a href="#">HP ENVY-13</a></h3>
+                <div class="d-flex">
+                  <div class="pricing">
+                    <p class="price"><span class="price-sale">40,000&nbsp;<span>&#8377;</span></span></p>
+                  </div>
+                </div>
+                <p class="bottom-area d-flex px-3">
+                  <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                  <a href="#" class="buy-now text-center py-2">view now<span><i class="ion-ios-cart ml-1"></i></span></a>
+                </p>
+              </div>
+            </div>
+    </div>
+    <div class="item">
+      <div class="product">
+              <a class="img-prod"><img class="img-fluid" src="img/Laptop/HP7.png" alt="Colorlib Template">
+                <!--<span class="status">10%</span>-->
+                <div class="overlay"></div>
+              </a>
+              <div class="text py-3 px-3">
+                <h3><a href="#">HP ENVY 13" PC</a></h3>
+                <div class="d-flex">
+                  <div class="pricing">
+                    <p class="price"><span class="price-sale">40,000&nbsp;<span>&#8377;</span></span></p>
+                  </div>
+                </div>
+                <p class="bottom-area d-flex px-3">
+                  <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                  <a href="#" class="buy-now text-center py-2">view now<span><i class="ion-ios-cart ml-1"></i></span></a>
+                </p>
+              </div>
+            </div>
+    </div>
+    <div class="item">
+      <div class="product">
+              <a class="img-prod"><img class="img-fluid" src="img/Laptop/HP8.png" alt="Colorlib Template">
+                <!--<span class="status">10%</span>-->
+                <div class="overlay"></div>
+              </a>
+              <div class="text py-3 px-3">
+                <h3><a href="#">HP EliteBook x360 830 G6</a></h3>
+                <div class="d-flex">
+                  <div class="pricing">
+                    <p class="price"><span class="price-sale">40,000&nbsp;<span>&#8377;</span></span></p>
+                  </div>
+                </div>
+                <p class="bottom-area d-flex px-3">
+                  <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                  <a href="#" class="buy-now text-center py-2">view now<span><i class="ion-ios-cart ml-1"></i></span></a>
+                </p>
+              </div>
+            </div>
+    </div>
+    <div class="item">
+      <div class="product">
+              <a class="img-prod"><img class="img-fluid" src="img/Laptop/HP9.png" alt="Colorlib Template">
+                <!--<span class="status">10%</span>-->
+                <div class="overlay"></div>
+              </a>
+              <div class="text py-3 px-3">
+                <h3><a href="#">HP Laptop-17t touch</a></h3>
+                <div class="d-flex">
+                  <div class="pricing">
+                    <p class="price"><span class="price-sale">40,000&nbsp;<span>&#8377;</span></span></p>
+                  </div>
+                </div>
+                <p class="bottom-area d-flex px-3">
+                  <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                  <a href="#" class="buy-now text-center py-2">view now<span><i class="ion-ios-cart ml-1"></i></span></a>
+                </p>
+              </div>
+            </div>
+    </div>
+    <div class="item">
+      <div class="product">
+              <a class="img-prod"><img class="img-fluid" src="img/Laptop/HP10.png" alt="Colorlib Template">
+                <!--<span class="status">10%</span>-->
+                <div class="overlay"></div>
+              </a>
+              <div class="text py-3 px-3">
+                <h3><a href="#">HP EliteBook 850 G6</a></h3>
+                <div class="d-flex">
+                  <div class="pricing">
+                    <p class="price"><span class="price-sale">40,000&nbsp;<span>&#8377;</span></span></p>
+                  </div>
+                </div>
+                <p class="bottom-area d-flex px-3">
+                  <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                  <a href="#" class="buy-now text-center py-2">view now<span><i class="ion-ios-cart ml-1"></i></span></a>
+                </p>
+              </div>
+            </div>
+    </div>
+    <div class="item">
+      <div class="product">
+              <a class="img-prod"><img class="img-fluid" src="img/Laptop/HP11.png" alt="Colorlib Template">
+                <!--<span class="status">10%</span>-->
+                <div class="overlay"></div>
+              </a>
+              <div class="text py-3 px-3">
+                <h3><a href="#">HP ProBook 650 G5</a></h3>
+                <div class="d-flex">
+                  <div class="pricing">
+                    <p class="price"><span class="price-sale">40,000&nbsp;<span>&#8377;</span></span></p>
+                  </div>
+                </div>
+                <p class="bottom-area d-flex px-3">
+                  <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                  <a href="#" class="buy-now text-center py-2">view now<span><i class="ion-ios-cart ml-1"></i></span></a>
+                </p>
+              </div>
+            </div>
+    </div>
+    <div class="item">
+      <div class="product">
+              <a class="img-prod"><img class="img-fluid" src="img/Laptop/HP12.png" alt="Colorlib Template">
+                <!--<span class="status">10%</span>-->
+                <div class="overlay"></div>
+              </a>
+              <div class="text py-3 px-3">
+                <h3><a href="#">HP EliteBook 850 G5</a></h3>
+                <div class="d-flex">
+                  <div class="pricing">
+                    <p class="price"><span class="price-sale">40,000&nbsp;<span>&#8377;</span></span></p>
+                  </div>
+                </div>
+                <p class="bottom-area d-flex px-3">
+                  <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                  <a href="#" class="buy-now text-center py-2">view now<span><i class="ion-ios-cart ml-1"></i></span></a>
+                </p>
+              </div>
+            </div>
+    </div>
+        </div>
+    </div><br>
+
+    <div class="container">
+    	<div class="owl-carousel owl-theme owl-a">
+            <div class="item">
+      <div class="product">
+              <a class="img-prod"><img class="img-fluid" src="img/Mobile/samsung1.jpeg" alt="Colorlib Template">
+                <!--<span class="status">10%</span>-->
+                <div class="overlay"></div>
+              </a>
+              <div class="text py-3 px-3">
+                <h3><a href="#">Samsung Galaxy A51 </a></h3>
+                <div class="d-flex">
+                  <div class="pricing">
+                    <p class="price"><span class="price-sale">40,000&nbsp;<span>&#8377;</span></span></p>
+                  </div>
+                </div>
+                <p class="bottom-area d-flex px-3">
+                  <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                  <a href="#" class="buy-now text-center py-2">View now<span><i class="ion-ios-cart ml-1"></i></span></a>
+                </p>
+              </div>
+            </div>
+    </div>
+    <div class="item">
+      <div class="product">
+              <a class="img-prod"><img class="img-fluid" src="img/Mobile/samsung2.jpeg" alt="Colorlib Template">
+                <!--<span class="status">10%</span>-->
+                <div class="overlay"></div>
+              </a>
+              <div class="text py-3 px-3">
+                <h3><a href="#">Samsung Galaxy S10 Lite</a></h3>
+                <div class="d-flex">
+                  <div class="pricing">
+                    <p class="price"><span class="price-sale">40,000&nbsp;<span>&#8377;</span></span></p>
+                  </div>
+                </div>
+                <p class="bottom-area d-flex px-3">
+                  <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                  <a href="#" class="buy-now text-center py-2">view now<span><i class="ion-ios-cart ml-1"></i></span></a>
+                </p>
+              </div>
+            </div>
+    </div>
+    <div class="item">
+      <div class="product">
+              <a class="img-prod"><img class="img-fluid" src="img/Mobile/samsung3.jpeg" alt="Colorlib Template">
+                <!--<span class="status">10%</span>-->
+                <div class="overlay"></div>
+              </a>
+              <div class="text py-3 px-3">
+                <h3><a href="#">Samsung Galaxy M30s</a></h3>
+                <div class="d-flex">
+                  <div class="pricing">
+                    <p class="price"><span class="price-sale">40,000&nbsp;<span>&#8377;</span></span></p>
+                  </div>
+                </div>
+                <p class="bottom-area d-flex px-3">
+                  <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                  <a href="#" class="buy-now text-center py-2">view now<span><i class="ion-ios-cart ml-1"></i></span></a>
+                </p>
+              </div>
+            </div>
+    </div>
+    <div class="item">
+      <div class="product">
+              <a class="img-prod"><img class="img-fluid" src="img/Mobile/samsung4.jpeg" alt="Colorlib Template">
+                <!--<span class="status">10%</span>-->
+                <div class="overlay"></div>
+              </a>
+              <div class="text py-3 px-3">
+                <h3><a href="#">Samsung Galaxy S20+</a></h3>
+                <div class="d-flex">
+                  <div class="pricing">
+                    <p class="price"><span class="price-sale">40,000&nbsp;<span>&#8377;</span></span></p>
+                  </div>
+                </div>
+                <p class="bottom-area d-flex px-3">
+                  <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                  <a href="#" class="buy-now text-center py-2">view now<span><i class="ion-ios-cart ml-1"></i></span></a>
+                </p>
+              </div>
+            </div>
+    </div>
+    <div class="item">
+      <div class="product">
+              <a class="img-prod"><img class="img-fluid" src="img/Mobile/mi1.jpeg" alt="Colorlib Template">
+                <!--<span class="status">10%</span>-->
+                <div class="overlay"></div>
+              </a>
+              <div class="text py-3 px-3">
+                <h3><a href="#">Mi Mix 2 </a></h3>
+                <div class="d-flex">
+                  <div class="pricing">
+                    <p class="price"><span class="price-sale">40,000&nbsp;<span>&#8377;</span></span></p>
+                  </div>
+                </div>
+                <p class="bottom-area d-flex px-3">
+                  <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                  <a href="#" class="buy-now text-center py-2">view now<span><i class="ion-ios-cart ml-1"></i></span></a>
+                </p>
+              </div>
+            </div>
+    </div>
+    <div class="item">
+      <div class="product">
+              <a class="img-prod"><img class="img-fluid" src="img/Mobile/mi2.jpeg" alt="Colorlib Template">
+                <!--<span class="status">10%</span>-->
+                <div class="overlay"></div>
+              </a>
+              <div class="text py-3 px-3">
+                <h3><a href="#">Redmi 8 </a></h3>
+                <div class="d-flex">
+                  <div class="pricing">
+                    <p class="price"><span class="price-sale">40,000&nbsp;<span>&#8377;</span></span></p>
+                  </div>
+                </div>
+                <p class="bottom-area d-flex px-3">
+                  <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                  <a href="#" class="buy-now text-center py-2">view now<span><i class="ion-ios-cart ml-1"></i></span></a>
+                </p>
+              </div>
+            </div>
+    </div>
+    <div class="item">
+      <div class="product">
+              <a class="img-prod"><img class="img-fluid" src="img/Mobile/mi3.jpeg" alt="Colorlib Template">
+                <!--<span class="status">10%</span>-->
+                <div class="overlay"></div>
+              </a>
+              <div class="text py-3 px-3">
+                <h3><a href="#">Redmi 8A </a></h3>
+                <div class="d-flex">
+                  <div class="pricing">
+                    <p class="price"><span class="price-sale">40,000&nbsp;<span>&#8377;</span></span></p>
+                  </div>
+                </div>
+                <p class="bottom-area d-flex px-3">
+                  <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                  <a href="#" class="buy-now text-center py-2">view now<span><i class="ion-ios-cart ml-1"></i></span></a>
+                </p>
+              </div>
+            </div>
+    </div>
+    <div class="item">
+      <div class="product">
+              <a class="img-prod"><img class="img-fluid" src="img/Mobile/mi4.jpeg" alt="Colorlib Template">
+                <!--<span class="status">10%</span>-->
+                <div class="overlay"></div>
+              </a>
+              <div class="text py-3 px-3">
+                <h3><a href="#">Redmi Note 6 Pro</a></h3>
+                <div class="d-flex">
+                  <div class="pricing">
+                    <p class="price"><span class="price-sale">40,000&nbsp;<span>&#8377;</span></span></p>
+                  </div>
+                </div>
+                <p class="bottom-area d-flex px-3">
+                  <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                  <a href="#" class="buy-now text-center py-2">view now<span><i class="ion-ios-cart ml-1"></i></span></a>
+                </p>
+              </div>
+            </div>
+    </div>
+</div>
+    </div><br>
+    
+       <div class="container">
+    	<div class="owl-carousel owl-theme owl-a">
+            <div class="item">
+      <div class="product">
+              <a class="img-prod"><img class="img-fluid" src="img/Tv/tv1.jpeg" alt="Colorlib Template">
+                <!--<span class="status">10%</span>-->
+                <div class="overlay"></div>
+              </a>
+              <div class="text py-3 px-3">
+                <h3><a href="#">Samsung 65 inch Ultra HD</a></h3>
+                <div class="d-flex">
+                  <div class="pricing">
+                    <p class="price"><span class="price-sale">40,000&nbsp;<span>&#8377;</span></span></p>
+                  </div>
+                </div>
+                <p class="bottom-area d-flex px-3">
+                  <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                  <a href="#" class="buy-now text-center py-2">view now<span><i class="ion-ios-cart ml-1"></i></span></a>
+                </p>
+              </div>
+            </div>
+    </div>
+    <div class="item">
+      <div class="product">
+              <a class="img-prod"><img class="img-fluid" src="img/Tv/tv2.jpeg" alt="Colorlib Template">
+                <!--<span class="status">10%</span>-->
+                <div class="overlay"></div>
+              </a>
+              <div class="text py-3 px-3">
+                <h3><a href="#">Samsung 49 inch Full HD</a></h3>
+                <div class="d-flex">
+                  <div class="pricing">
+                    <p class="price"><span class="price-sale">40,000&nbsp;<span>&#8377;</span></span></p>
+                  </div>
+                </div>
+                <p class="bottom-area d-flex px-3">
+                  <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                  <a href="#" class="buy-now text-center py-2">view now<span><i class="ion-ios-cart ml-1"></i></span></a>
+                </p>
+              </div>
+            </div>
+    </div>
+    <div class="item">
+      <div class="product">
+              <a class="img-prod"><img class="img-fluid" src="img/Tv/tv3.jpeg" alt="Colorlib Template">
+                <!--<span class="status">10%</span>-->
+                <div class="overlay"></div>
+              </a>
+              <div class="text py-3 px-3">
+                <h3><a href="#">Samsung N4200 32 inch</a></h3>
+                <div class="d-flex">
+                  <div class="pricing">
+                    <p class="price"><span class="price-sale">40,000&nbsp;<span>&#8377;</span></span></p>
+                  </div>
+                </div>
+                <p class="bottom-area d-flex px-3">
+                  <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                  <a href="#" class="buy-now text-center py-2">view now<span><i class="ion-ios-cart ml-1"></i></span></a>
+                </p>
+              </div>
+            </div>
+    </div>
+    <div class="item">
+      <div class="product">
+              <a class="img-prod"><img class="img-fluid" src="img/Tv/tv4.jpeg" alt="Colorlib Template">
+                <!--<span class="status">10%</span>-->
+                <div class="overlay"></div>
+              </a>
+              <div class="text py-3 px-3">
+                <h3><a href="#">Samsung 43 inch Ultra HD</a></h3>
+                <div class="d-flex">
+                  <div class="pricing">
+                    <p class="price"><span class="price-sale">40,000&nbsp;<span>&#8377;</span></span></p>
+                  </div>
+                </div>
+                <p class="bottom-area d-flex px-3">
+                  <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                  <a href="#" class="buy-now text-center py-2">view now<span><i class="ion-ios-cart ml-1"></i></span></a>
+                </p>
+              </div>
+            </div>
+    </div>
+    <div class="item">
+      <div class="product">
+              <a class="img-prod"><img class="img-fluid" src="img/Tv/tv5.jpeg" alt="Colorlib Template">
+                <!--<span class="status">10%</span>-->
+                <div class="overlay"></div>
+              </a>
+              <div class="text py-3 px-3">
+                <h3><a href="#">Samsung 50 inch Ultra HD</a></h3>
+                <div class="d-flex">
+                  <div class="pricing">
+                    <p class="price"><span class="price-sale">40,000&nbsp;<span>&#8377;</span></span></p>
+                  </div>
+                </div>
+                <p class="bottom-area d-flex px-3">
+                  <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                  <a href="#" class="buy-now text-center py-2">view now<span><i class="ion-ios-cart ml-1"></i></span></a>
+                </p>
+              </div>
+            </div>
+    </div>
+    <div class="item">
+      <div class="product">
+              <a class="img-prod"><img class="img-fluid" src="img/Tv/tv6.jpeg" alt="Colorlib Template">
+                <!--<span class="status">10%</span>-->
+                <div class="overlay"></div>
+              </a>
+              <div class="text py-3 px-3">
+                <h3><a href="#">LG 43 inch Full HD</a></h3>
+                <div class="d-flex">
+                  <div class="pricing">
+                    <p class="price"><span class="price-sale">40,000&nbsp;<span>&#8377;</span></span></p>
+                  </div>
+                </div>
+                <p class="bottom-area d-flex px-3">
+                  <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                  <a href="#" class="buy-now text-center py-2">view now<span><i class="ion-ios-cart ml-1"></i></span></a>
+                </p>
+              </div>
+            </div>
+    </div>
+    <div class="item">
+      <div class="product">
+              <a class="img-prod"><img class="img-fluid" src="img/Tv/tv7.jpeg" alt="Colorlib Template">
+                <!--<span class="status">10%</span>-->
+                <div class="overlay"></div>
+              </a>
+              <div class="text py-3 px-3">
+                <h3><a href="#">LG 43 inch Ultra HD </a></h3>
+                <div class="d-flex">
+                  <div class="pricing">
+                    <p class="price"><span class="price-sale">40,000&nbsp;<span>&#8377;</span></span></p>
+                  </div>
+                </div>
+                <p class="bottom-area d-flex px-3">
+                  <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                  <a href="#" class="buy-now text-center py-2">view now<span><i class="ion-ios-cart ml-1"></i></span></a>
+                </p>
+              </div>
+            </div>
+    </div>
+    <div class="item">
+      <div class="product">
+              <a class="img-prod"><img class="img-fluid" src="img/Tv/tv8.jpeg" alt="Colorlib Template">
+                <!--<span class="status">10%</span>-->
+                <div class="overlay"></div>
+              </a>
+              <div class="text py-3 px-3">
+                <h3><a href="#">LG 65 inch Ultra HD</a></h3>
+                <div class="d-flex">
+                  <div class="pricing">
+                    <p class="price"><span class="price-sale">40,000&nbsp;<span>&#8377;</span></span></p>
+                  </div>
+                </div>
+                <p class="bottom-area d-flex px-3">
+                  <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                  <a href="#" class="buy-now text-center py-2">view now<span><i class="ion-ios-cart ml-1"></i></span></a>
+                </p>
+              </div>
+            </div>
+    </div>
+</div>
+    </div>
+</section>
+
+<section  class="ftco-section bg-light" id="Products">
+    <div class="container">
+				<div class="row justify-content-center mb-3 pb-3">
+          <div class="col-md-12 heading-section text-center ftco-animate">
+            <h2 class="mb-4 productStyle">Products</h2>
+          </div>
+        </div> 
+        <hr>  		
+    	</div>
+<div class="container">
+ <div class="owl-carousel owl-theme">
+    <div class="item"><a href="Laptop.html"><img src="img/Electronics/laptops.jpg"></a></div>
+    <div class="item"><a href="#"><img src="img/Electronics/mobile-12221.jpg"></a></div>
+    <div class="item"><a href="#"><img src="img/Electronics/pc_accessories.jpg"></a></div>
+    <div class="item"><a href="#"><img src="img/Electronics/pc_gaming._CB497531418_.jpg"></a></div>
+    <div class="item"><a href="#"><img src="img/Electronics/pen_drives.jpg"></a></div>
+    <div class="item"><a href="#"><img src="img/Electronics/printers.jpg"></a></div>
+    <div class="item"><a href="#"><img src="img/Electronics/Smartwatches_electronics_Shop-by-Category-Tiles_750x783._CB446441858_.jpg"></a></div>
+    <div class="item"><a href="#"><img src="img/Electronics/speakers.jpg"></a></div>
+    <div class="item"><a href="#"><img src="img/Electronics/tablets._CB497531413_.jpg"></a></div>
+    <div class="item"><a href="#"><img src="img/Electronics/tv-122212.jpg"></a></div>
+    
+ </div>
+ </div>
+<hr>  	
+</section>
+
+   <section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(img/image1.jpg);">
+    	<div class="container">
+    		<div class="row justify-content-center py-5">
+    			<div class="col-md-10">
+		    		<div class="row">
+		          <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+		            <div class="block-18 text-center">
+		              <div class="text">
+		                <strong class="number" data-number="8167">0</strong>
+		                <strong><span style="font-size: 15px">Happy Customers</span></strong>
+		              </div>
+		            </div>
+		          </div>
+		          <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+		            <div class="block-18 text-center">
+		              <div class="text">
+		                <strong class="number" data-number="238">0</strong>
+		                <strong><span style="font-size: 15px">Employees</span></strong>
+		              </div>
+		            </div>
+		          </div>
+		          <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+		            <div class="block-18 text-center">
+		              <div class="text">
+		                <strong class="number" data-number="47">0</strong>
+		                <strong><span style="font-size: 15px">Partners</span></strong>
+		              </div>
+		            </div>
+		          </div>
+		          <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+		            <div class="block-18 text-center">
+		              <div class="text">
+		                <strong class="number" data-number="556">0</strong>
+		                <strong><span style="font-size: 15px">Products</span></strong>
+		              </div>
+		            </div>
+		          </div>
+		        </div>
+	        </div>
+        </div>
+    	</div>
+    </section>
+
+<footer class="ftco-footer ftco-section" style="background-color: white"  id="aboutUs">
+      <div class="container">
+
+      	<hr style="background-color: black"><br>
+        <div class="row mb-5">
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Shopping Bay</h2>
+              <p>Enrich your shopping list wisely. Whatever you have got in mind, we have got inside.</p>
+              <ul class="ftco list-unstyled float-md-left float-lft mt-5">
+                <li class="ftco-animate"><a href="http:\\www.twitter.com" target="_blank"><i class="fab fa-twitter" style="font-size: 30px"></i></a>&nbsp;&nbsp;&nbsp;<a href="http:\\www.facebook.com" target="_blank"><i class="fab fa-facebook" style="font-size: 30px"></i></a>&nbsp;&nbsp;&nbsp;<a href="http:\\www.instagram.com" target="_blank"><i class="fab fa-instagram" style="font-size: 30px"></i></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4 ml-md-5">
+              <h2 class="ftco-heading-2">Menu</h2>
+              <ul class="list-unstyled">
+                <li><a href="#featuredProducts" class="py-2 d-block">Featured Products</a></li>
+                <li><a href="#offerZone" class="py-2 d-block">Offer Zone</a></li>
+                <li><a href="#Products" class="py-2 d-block">Products</a></li>
+                <li><a href="#loginModal" class="py-2 d-block" data-toggle="modal" onclick="loginModal()">Register/Login</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-4">
+             <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Help</h2>
+              <div class="d-flex">
+	              <ul class="list-unstyled mr-l-5 pr-l-3 mr-4">
+	                <li><a href="#" class="py-2 d-block">Shipping Information</a></li>
+	                <li><a href="#" class="py-2 d-block">Returns &amp; Exchange</a></li>
+	                <li><a href="#" class="py-2 d-block">Terms &amp; Conditions</a></li>
+	                <li><a href="#" class="py-2 d-block">Privacy Policy</a></li>
+	              </ul>
+	              <ul class="list-unstyled">
+	                <li><a href="#" class="py-2 d-block">FAQs</a></li>
+	                <li><a href="#" class="py-2 d-block">Contact</a></li>
+	              </ul>
+	            </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-center">
+
+            <p>Copyright &copy;2020 All rights reserved</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/jquery.animateNumber.min.js"></script>
+  <script src="js/scrollax.min.js"></script>
+  <script src="js/main.js"></script>
+  <script type="text/javascript">
+			$('.owl-a').owlCarousel({
+
+        loop:true,
+        margin: 10,
+        nav: true,
+        mouseDrag: true,
+        touchDrag: false,
+        autoplay: true,
+        duration:3000,
+        navContainer: 'controls-class',
+        dots: false,
+        navText: ['', ''],
+        responsive: {
+          0: {
+            items: 1,
+            // autoHeight: true,
+            mouseDrag: false,
+            touchDrag: true
+          },
+          600: {
+            items: 4,
+            // autoHeight: true,
+            mouseDrag: false,
+            touchDrag: true
+          },
+          1000: {
+            items: 4,
+            // autoWidth: true
+          }
+        }
+})
+		</script>
+  <script type="text/javascript">
+			$('.owl-carousel').owlCarousel({
+
+        loop:true,
+        margin: 10,
+        nav: true,
+        mouseDrag: true,
+        touchDrag: false,
+        autoplay: true,
+        duration:3000,
+        navContainer: 'controls-class',
+        dots: false,
+        navText: ['', ''],
+        responsive: {
+          0: {
+            items: 2,
+            // autoHeight: true,
+            mouseDrag: false,
+            touchDrag: true
+          },
+          600: {
+            items: 5,
+            // autoHeight: true,
+            mouseDrag: false,
+            touchDrag: true
+          },
+          1000: {
+            items: 5,
+            // autoWidth: true
+          }
+        }
+})
+		</script>
+  <script type="text/javascript">
+  	$('.counter-count').each(function () {
+        $(this).prop('Counter',0).animate({
+            Counter: $(this).text()
+        }, {
+            duration: 3000,
+            easing: 'swing',
+            step: function (now) {
+                $(this).text(Math.ceil(now));
+            }
+        });
+    });
+  </script>
+  <script type="text/javascript">
+  	function loginClose(){
+  		$("#loginModal").modal("hide");
+  		$("#signupModal").modal("show");
+  	}
+
+  	function showCart(){
+  		$("#cartModal").modal("show");
+  	}
+
+  	function loginSubmit(){
+
+  		var email = document.getElementById('loginEmail').value;
+  		var pass = document.getElementById('loginPwd').value;
+
+  		if(email == "arpit.sh95@gmail.com" && pass == "123456")
+  		{
+        // window.location.replace("MyAccount.html");
+        alert("Signed In") ; 
+  		}	
+  		else	
+  		alert("Email/Password Mismatch");	
+  	}
+
+  	function Search(){
+  		var search = document.getElementById('SearchBar').value;
+
+  		if(search == "laptop"){
+  			window.location.replace("Laptop.html");
+  		}
+  	}
+
+  </script>
+  <script type="text/javascript">
+
+  </script>
+  </body>
+</html>

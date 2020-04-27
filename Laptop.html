@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+    <title>Shopping Bay</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="img/goods.png">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+    <link rel="stylesheet" href="css/ShoppingBay.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome-animation.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/brands.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/regular.min.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <link href="https://fonts.googleapis.com/css?family=Girassol&display=swap" rel="stylesheet">
+  </head>
+
+<body class="goto-here">
+
+<div class="modal fade" id="signupModal" tabindex="-1", role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #fff">
+                <h5 class="modal-title"  style="color: #030c08">Register Here</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="close" style="color: #000">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form  class="form" method="post" id="signupform" autocomplete="off">
+                    <div class="form-group">
+                    <input type="text" id="sigupName" class="form-control" placeholder="Name" width="40%" required="required">
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="sigupContact" class="form-control" placeholder="Contact" width="40%" maxlength="10" minlength="10" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+        required="required">
+                </div>
+                    <div class="form-group">
+                    <input type="Email" id="signupEmail" class="form-control" placeholder="Email" width="40%" required="required">
+                </div>
+                    <div class="form-group">
+                    <input type="Password" id="signupPwd" class="form-control" placeholder="Password"  width="40%" minlength="6" required="required">
+                </div>
+                <div class="form-group">
+                <button type="Submit" id="registerButton" class="btn btn-dark"  width="40%">Register</button>
+            </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="loginModal" tabindex="-1", role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: #fff">
+                <h5 class="modal-title"  style="color: #030c08">LogIn/SignUp</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="close" style="color: #000">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form  class="form" method="post" id="loginform" autocomplete="off">
+                    <div class="form-group">
+                    <input type="Email" id="loginEmail" class="form-control" placeholder="Email" width="40%">
+                </div>
+                    <div class="form-group">
+                    <input type="Password" id="loginPwd" class="form-control" placeholder="Password" width="40%">
+                </div>
+                <div class="form-group">
+                <p><a href="" style="color: black;" class="pull-right">Forgot Password?</a></p>
+            </div>
+                <div class="form-group">
+                <a href="#" id="loginButton" class="btn btn-dark"  width="40%" onclick="loginSubmit()">Login</a>
+            </div>
+            <p>or <a href="#signupModal" style="color: black;" onclick="loginClose()">Create an Account</a></p>
+                
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+    
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-light ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+	      <h class="navbar-brand" style="color: black;border:2px solid #000;border-right: 5px;border-left: 5px"><i class="fa fa-shopping-bag"></i>&nbsp;Shopping Bay</h>
+	      <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+
+	      <div class="collapse navbar-collapse" id="ftco-nav" style="background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(47,31,31,0.9416141456582633) 54%, rgba(128,134,135,1) 100%);"> 
+	        <ul class="navbar-nav ml-auto">
+	          <li class="nav-item active"><a href="home.html" class="nav-link" style="font-size: 11px;color: white">Home</a></li>
+	          <li class="nav-item"><a href="#offerZone" class="nav-link" style="font-size: 11px;color: white">Offer Zone</a></li>
+	          <li class="nav-item"><a href="#featuredProducts" class="nav-link" style="font-size: 11px;color: white">Featured Products</a></li>
+	          <li class="nav-item"><a href="#Products" class="nav-link" style="font-size: 11px;color: white">Products</a></li>
+	          <li class="nav-item"><a href="#aboutUs" class="nav-link" style="font-size: 11px;color: white">About Us</a></li>
+	          <li class="nav-item">
+	          	<a href="#loginModal" class="nav-link" data-toggle="modal" style="font-size: 11px;color: white">Register/LogIn</a></li>
+	          <li class="nav-item"><a href="paymentpage.html" class="nav-link" style="font-size: 11px;color: white"><span class=" fa fa-shopping-cart" onclick="showCart()"></span></a></li>
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+
+    <div class="container">
+        <form autocomplete="off" style="margin-bottom: 10px">
+                <input type="Search" class="inputSearch" name="q" autocomplete="off" placeholder="Search for more products..">&nbsp;
+                <button type="Submit" class="btn btn-dark bt"><i class="fa fa-search"></i></button>
+        </form>
+     </div>
+
+    <section id="slider-section" class="hero">
+          <div class="home-slider js-fullheight owl-carousel">
+          <div class="slider-item js-fullheight">
+            <div class="overlay"></div>
+            <div class="container-fluid p-0">
+              <div class="row d-md-flex no-gutters slider-text js-fullheight align-items-center justify-content-end" data-scrollax-parent="true">
+                <div class="one-third order-md-last img js-fullheight" style="background-image:url(img/Laptop/laptop4.jpg);">
+                </div>
+                  <div class="one-forth d-flex js-fullheight align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+                    <div class="text">
+                        <div class="horizontal">
+                            <h1 class="mb-4 mt-3">HP ENVY Laptop - 17t Best Value</h1>
+                            <p>Windows 10, 16GB RAM, 512GB HDD, Intel Core i7, Silver, 17.3 inch</p>
+                            
+                            <p><a href="LaptopDetails.html" class="btn btn-primary px-5 py-3 mt-3">Know More</a></p>
+                          </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+
+          <div class="slider-item js-fullheight">
+            <div class="overlay"></div>
+            <div class="container-fluid p-0">
+              <div class="row d-flex no-gutters slider-text js-fullheight align-items-center justify-content-end" data-scrollax-parent="true">
+                <div class="one-third order-md-last img js-fullheight" style="background-image:url(img/Laptop/laptop5.jpg);">
+                </div>
+                  <div class="one-forth d-flex js-fullheight align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+                    <div class="text">
+                        <div class="horizontal">
+                            <h1 class="mb-4 mt-3">HP Pavilion x360</h1>
+                            <p>14-BA075TX Laptop (Windows 10, 4GB RAM, 1000GB HDD, Intel Core i3, Natural Silver, 14 inch</p>
+                            
+                            <p><a href="#" class="btn btn-primary px-5 py-3 mt-3">Know More</a></p>
+                          </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+
+          <div class="slider-item js-fullheight">
+            <div class="overlay"></div>
+            <div class="container-fluid p-0">
+              <div class="row d-flex no-gutters slider-text js-fullheight align-items-center justify-content-end" data-scrollax-parent="true">
+                <div class="one-third order-md-last img js-fullheight" style="background-image:url(img/Laptop/HP31.png);">
+                </div>
+                  <div class="one-forth d-flex js-fullheight align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+                    <div class="text">
+                        <div class="horizontal">
+                            <h1 class="mb-4 mt-3">OMEN Laptop 15</h1>
+                            <p>39.6 cm (15.6") 1920 x 1080 pixels 9th gen Intel® Core™ i7 16 GB RAM</p>
+                            
+                            <p><a href="#" class="btn btn-primary px-5 py-3 mt-3">Know More</a></p>
+                          </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+
+          <div class="slider-item js-fullheight">
+            <div class="overlay"></div>
+            <div class="container-fluid p-0">
+              <div class="row d-flex no-gutters slider-text js-fullheight align-items-center justify-content-end" data-scrollax-parent="true">
+                <div class="one-third order-md-last img js-fullheight" style="background-image:url(img/Laptop/HP41.png);">
+                </div>
+                  <div class="one-forth d-flex js-fullheight align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+                    <div class="text">
+                        <div class="horizontal">
+                            <h1 class="mb-4 mt-3">HP Pavilion 15</h1>
+                            <p>Core i5 8th gen 15.6-inch FHD Laptop (8GB/1TB HDD/Win 10/2 GB MX130 DDR5 Graphics/MS Office/Mineral Silver/2.04 kg)</p>
+                            
+                            <p><a href="#" class="btn btn-primary px-5 py-3 mt-3">Know More</a></p>
+                          </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+
+          <div class="slider-item js-fullheight">
+            <div class="overlay"></div>
+            <div class="container-fluid p-0">
+              <div class="row d-flex no-gutters slider-text js-fullheight align-items-center justify-content-end" data-scrollax-parent="true">
+                <div class="one-third order-md-last img js-fullheight" style="background-image:url(img/Laptop/HP51.png);">
+                </div>
+                  <div class="one-forth d-flex js-fullheight align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+                    <div class="text">
+                        <div class="horizontal">
+                            <h1 class="mb-4 mt-3">HP Pavilion Gaming</h1>
+                            <p>15.6" FHD IPS, Intel 8th Gen i5+8300H, NVIDIA GTX 1050Ti 4GB, 8GB RAM, 16GB Intel Optane Memory, 1TB HDD</p>
+                            
+                            <p><a href="#" class="btn btn-primary px-5 py-3 mt-3">Know More</a></p>
+                          </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+    </section>
+
+<section>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-2 bg-light" style="margin-left: 30px">
+			<div class="row">
+				<p class="filter" style="padding-left:10px">Filters</p>
+			</div>
+			<hr>
+			<!--<div class="row">-->
+				<form>
+					<label class="filter">By Brand</label>
+            		<p><input type="checkbox" value="Lenevo" name="Brand">&nbsp;&nbsp;Lenevo</p>
+            		<p><input type="checkbox" value="HP" name="Brand">&nbsp;&nbsp;HP</p>
+            		<p><input type="checkbox" value="Dell" name="Brand">&nbsp;&nbsp;Dell</p>
+            		<p><input type="checkbox" value="Asus" name="Brand">&nbsp;&nbsp;Asus</p><hr>
+
+           			 <label class="filter">By Price</label><br>
+           			 <select name="MinPrice" class="box">
+           			 	<option >Min.</option>
+           			 	<option ><span>&#8377;</span>20000</option>
+           			 	<option><span>&#8377;</span>25000</option>
+           			 	<option><span>&#8377;</span>30000</option>
+           			 	<option><span>&#8377;</span>35000</option>
+           			 	<option><span>&#8377;</span>40000</option>
+           			 </select>
+           			 <p>to</p>
+           			 <select name="MaxPrice">
+           			 	<option><span>&#8377;</span>20000</option>
+           			 	<option><span>&#8377;</span>25000</option>
+           			 	<option><span>&#8377;</span>30000</option>
+           			 	<option><span>&#8377;</span>35000</option>
+           			 	<option><span>&#8377;</span>40000</option>
+           			 	<option><span>&#8377;</span>40000+</option>
+           			 </select>
+           			 <hr>
+           			 <label class="filter">By Processor</label><br>
+           			 <p><input type="checkbox" value="corei3" name="Processor">&nbsp;&nbsp;Core i3</p>
+            		 <p><input type="checkbox" value="corei5" name="Processor">&nbsp;&nbsp;Core i5</p>
+            		 <p><input type="checkbox" value="corei7" name="Processor">&nbsp;&nbsp;Core i7</p>
+            		 <hr>
+            		 <label class="filter">By RAM</label><br>
+           			 <p><input type="checkbox" value="2" name="RAM">&nbsp;&nbsp;2 GB</p>
+            		 <p><input type="checkbox" value="4" name="RAM">&nbsp;&nbsp;4 GB</p>
+            		 <p><input type="checkbox" value="8" name="RAM">&nbsp;&nbsp;8 GB</p>
+            		 <hr>
+            		 <label class="filter">By Storage Size</label><br>
+           			 <p><input type="checkbox" value="500GB" name="Storage">&nbsp;&nbsp;500 GB</p>
+            		 <p><input type="checkbox" value="1TB" name="Storage">&nbsp;&nbsp;1 TB</p>
+            		 <p><input type="checkbox" value="2TB" name="Storage">&nbsp;&nbsp;2 TB</p>
+            		 <hr>
+
+				</form>
+			<!--</div>-->
+		</div>
+
+		<div class="col-md-9 bg-light">
+			
+<div class="row">
+
+    <div class="col-md-3">
+      <div class="card h-100" >
+        <img class="
+        card-img-top" src="img/Laptop/HP4.png">
+      <div class="card card-body">      
+        <a href="LaptopDetails.html"><h5 class="card-title">HP ENVY Laptop - 17t Best Value</h5></a>
+         <p class="card-text" style="color:black;">Silver Notebook 33.8 cm (13.3") 1920 x 1080 pixels Touchscreen 10th gen Intel® Core™ i7 8 GB DDR4-SDRAM 512 GB SSD</p>
+      </div>
+      <div class="card-footer">
+          <strong>₹ 66,990</strong><a href="#"><button class="btn btn-primary pull-right"> Add to Cart</button></a>
+      </div>
+    </div>
+  </div>
+
+    <div class="col-md-3">
+      <div class="card h-100" >
+        <img class="
+        card-img-top" src="img/Laptop/HP5.png">
+      <div class="card card-body">      
+        <a href="LaptopDetails.html"><h5 class="card-title">OMEN Laptop - 15-dc1088nr</h5></a>
+         <p class="card-text" style="color:black;">Silver Notebook 33.8 cm (13.3") 1920 x 1080 pixels Touchscreen 10th gen Intel® Core™ i7 8 GB DDR4-SDRAM 512 GB SSD</p>
+      </div>
+      <div class="card-footer">
+          <strong>₹ 66,990</strong><a href="#"><button class="btn btn-primary pull-right"> Add to Cart</button></a>
+      </div>
+    </div>
+  </div>
+
+      <div class="col-md-3">
+      <div class="card h-100" >
+        <img class="
+        card-img-top" src="img/Laptop/HP2.png">
+      <div class="card card-body">      
+        <a href="LaptopDetails.html"><h5 class="card-title">HP Pavilion 15</h5></a>
+         <p class="card-text" style="color:black;">Silver Notebook 33.8 cm (13.3") 1920 x 1080 pixels Touchscreen 10th gen Intel® Core™ i7 8 GB DDR4-SDRAM 512 GB SSD</p>
+      </div>
+      <div class="card-footer">
+          <strong>₹ 66,990</strong><a href="#"><button class="btn btn-primary pull-right"> Add to Cart</button></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+      <div class="card h-100" >
+        <img class="
+        card-img-top" src="img/Laptop/HP3.png">
+      <div class="card card-body">      
+        <a href="LaptopDetails.html"><h5 class="card-title">HP Pavilion Gaming</h5></a>
+        <p class="card-text" style="color: black">Silver Notebook 33.8 cm (13.3") 1920 x 1080 pixels Touchscreen 10th gen Intel® Core™ i7 8 GB DDR4-SDRAM 512 GB SSD</p>
+      </div>
+      <div class="card-footer">
+          <strong>₹ 66,990</strong><a href="#"><button class="btn btn-primary pull-right"> Add to Cart</button></a>
+      </div>
+    </div>
+  </div>
+
+</div><br>
+
+<div class="row">
+
+    <div class="col-md-3">
+      <div class="card h-100" >
+        <img class="
+        card-img-top" src="img/Laptop/HP3.png">
+      <div class="card card-body">      
+        <a href="LaptopDetails.html"><h5 class="card-title">HP Pavilion Gaming</h5></a>
+         <p class="card-text" style="color:black;">15.6" FHD IPS, Intel 8th Gen i5+8300H, NVIDIA GTX 1050Ti 4GB, 8GB RAM, 16GB Intel Optane Memory, 1TB HDD</p>
+        </div>
+        <div class="card-footer">
+          <strong>₹ 66,990</strong><a href="#"><button class="btn btn-primary pull-right"> Add to Cart</button></a>
+      </div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card h-100" >
+        <img class="
+        card-img-top" src="img/Laptop/HP6.png">
+      <div class="card card-body">      
+        <a href="LaptopDetails.html"><h5 class="card-title">HP ENVY - 13-aq1185nr</h5></a>
+         <p class="card-text" style="color:black;">Silver Notebook 33.8 cm (13.3") 1920 x 1080 pixels Touchscreen 10th gen Intel® Core™ i7 8 GB DDR4-SDRAM 512 GB SSD</p>
+        </div>
+              <div class="card-footer">
+          <strong>₹ 66,990</strong><a href="#"><button class="btn btn-primary pull-right"> Add to Cart</button></a>
+      </div>
+      </div>
+    </div>
+
+      <div class="col-md-3">
+      <div class="card h-100" >
+        <img class="
+        card-img-top" src="img/Laptop/HP7.png">
+      <div class="card card-body">      
+        <a href="LaptopDetails.html"><h5 class="card-title">HP ENVY 13" PC + Microsoft Office 365 Personal (download) Bundle</h5></a>
+         <p class="card-text" style="color:black;">Silver Notebook 33.8 cm (13.3") 1920 x 1080 pixels Touchscreen 10th gen Intel® Core™ i7 8 GB DDR4-SDRAM 512 GB SSD</p>
+        </div>
+              <div class="card-footer">
+          <strong>₹ 66,990</strong><a href="#"><button class="btn btn-primary pull-right"> Add to Cart</button></a>
+      </div>
+      </div>
+    </div>
+
+  <div class="col-md-3">
+      <div class="card h-100" >
+        <img class="
+        card-img-top" src="img/Laptop/HP8.png">
+      <div class="card card-body">      
+        <a href="LaptopDetails.html"><h5 class="card-title">HP EliteBook x360 830 G6 Notebook PC - Customizables</h5></a>
+         <p class="card-text" style="color:black;">Silver Notebook 33.8 cm (13.3") 1920 x 1080 pixels Touchscreen 10th gen Intel® Core™ i7 8 GB DDR4-SDRAM 512 GB SSD</p>
+      </div>
+      <div class="card-footer">
+          <strong>₹ 66,990</strong><a href="#"><button class="btn btn-primary pull-right"> Add to Cart</button></a>
+      </div>
+    </div>
+  </div>
+
+</div><br>
+
+<div class="row">
+
+    <div class="col-md-3">
+      <div class="card h-100" >
+        <img class="
+        card-img-top" src="img/Laptop/HP9.png">
+      <div class="card card-body">      
+        <a href="LaptopDetails.html"><h5 class="card-title">HP Laptop - 17t touch optional</h5></a>
+         <p class="card-text" style="color:black;">Silver Notebook 33.8 cm (13.3") 1920 x 1080 pixels Touchscreen 10th gen Intel® Core™ i7 8 GB DDR4-SDRAM 512 GB SSD</p>
+      </div>
+      <div class="card-footer">
+          <strong>₹ 66,990</strong><a href="#"><button class="btn btn-primary pull-right"> Add to Cart</button></a>
+      </div>
+    </div>
+  </div>
+
+    <div class="col-md-3">
+      <div class="card h-100" >
+        <img class="
+        card-img-top" src="img/Laptop/HP10.png">
+      <div class="card card-body">      
+        <a href="LaptopDetails.html"><h5 class="card-title">HP EliteBook 850 G6 Notebook PC - Customizable</h5></a>
+         <p class="card-text" style="color:black;">Silver Notebook 33.8 cm (13.3") 1920 x 1080 pixels Touchscreen 10th gen Intel® Core™ i7 8 GB DDR4-SDRAM 512 GB SSD</p>
+      </div>
+      <div class="card-footer">
+          <strong>₹ 66,990</strong><a href="#"><button class="btn btn-primary pull-right"> Add to Cart</button></a>
+      </div>
+    </div>
+  </div>
+
+      <div class="col-md-3">
+      <div class="card h-100" >
+        <img class="
+        card-img-top" src="img/Laptop/HP11.png">
+      <div class="card card-body">      
+        <a href="LaptopDetails.html"><h5 class="card-title">HP ProBook 650 G5 Notebook PC - Customizable</h5></a>
+         <p class="card-text" style="color:black;">Silver Notebook 33.8 cm (13.3") 1920 x 1080 pixels Touchscreen 10th gen Intel® Core™ i7 8 GB DDR4-SDRAM 512 GB SSD</p>
+      </div>
+      <div class="card-footer">
+          <strong>₹ 66,990</strong><a href="#"><button class="btn btn-primary pull-right"> Add to Cart</button></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+      <div class="card h-100" >
+        <img class="
+        card-img-top" src="img/Laptop/HP12.png">
+      <div class="card card-body">      
+        <a href="LaptopDetails.html"><h5 class="card-title">HP EliteBook 850 G5 Notebook PC - Customizable</h5></a>
+         <p class="card-text" style="color:black;">Silver Notebook 33.8 cm (13.3") 1920 x 1080 pixels Touchscreen 10th gen Intel® Core™ i7 8 GB DDR4-SDRAM 512 GB SSD</p>
+      </div>
+      <div class="card-footer">
+          <strong>₹ 66,990</strong><a href="#"><button class="btn btn-primary pull-right"> Add to Cart</button></a>
+      </div>
+    </div>
+  </div>
+
+</div><br>
+
+<div class="row">
+
+    <div class="col-md-3">
+      <div class="card h-100" >
+        <img class="
+        card-img-top" src="img/Laptop/x360.jpg">
+      <div class="card card-body">      
+        <a href="LaptopDetails.html"><h5 class="card-title">HP Pavilion x360</h5></a>
+         <p class="card-text" style="color:black;">Silver Notebook 33.8 cm (13.3") 1920 x 1080 pixels Touchscreen 10th gen Intel® Core™ i7 8 GB DDR4-SDRAM 512 GB SSD</p>
+      </div>
+      <div class="card-footer">
+          <strong>₹ 66,990</strong><a href="#"><button class="btn btn-primary pull-right"> Add to Cart</button></a>
+      </div>
+    </div>
+  </div>
+
+    <div class="col-md-3">
+      <div class="card h-100" >
+        <img class="
+        card-img-top" src="img/Laptop/HP5.png">
+      <div class="card card-body">      
+        <a href="LaptopDetails.html"><h5 class="card-title">OMEN Laptop - 15-dc1088nr</h5></a>
+         <p class="card-text" style="color:black;">Silver Notebook 33.8 cm (13.3") 1920 x 1080 pixels Touchscreen 10th gen Intel® Core™ i7 8 GB DDR4-SDRAM 512 GB SSD</p>
+      </div>
+      <div class="card-footer">
+          <strong>₹ 66,990</strong><a href="#"><button class="btn btn-primary pull-right"> Add to Cart</button></a>
+      </div>
+    </div>
+  </div>
+
+      <div class="col-md-3">
+      <div class="card h-100" >
+        <img class="
+        card-img-top" src="img/Laptop/HP2.png">
+      <div class="card card-body">      
+        <a href="LaptopDetails.html"><h5 class="card-title">HP Pavilion 15</h5></a>
+         <p class="card-text" style="color:black;">Silver Notebook 33.8 cm (13.3") 1920 x 1080 pixels Touchscreen 10th gen Intel® Core™ i7 8 GB DDR4-SDRAM 512 GB SSD</p>
+      </div>
+      <div class="card-footer">
+          <strong>₹ 66,990</strong><a href="#"><button class="btn btn-primary pull-right"> Add to Cart</button></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+      <div class="card h-100" >
+        <img class="
+        card-img-top" src="img/Laptop/HP3.png">
+      <div class="card card-body">      
+        <a href="LaptopDetails.html"><h5 class="card-title">HP Pavilion Gaming</h5></a>
+        <p class="card-text" style="color: black">Silver Notebook 33.8 cm (13.3") 1920 x 1080 pixels Touchscreen 10th gen Intel® Core™ i7 8 GB DDR4-SDRAM 512 GB SSD</p>
+      </div>
+      <div class="card-footer">
+          <strong>₹ 66,990</strong><a href="#"><button class="btn btn-primary pull-right"> Add to Cart</button></a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+		</div>
+	</div>
+</div>
+</section><br><br>
+    
+<footer class="ftco-footer ftco-section" style="background-color: white"  id="aboutUs">
+      <div class="container">
+
+        <hr style="background-color: black"><br>
+        <div class="row mb-5">
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Shopping Bay</h2>
+              <p>Enrich your shopping list wisely. Whatever you have got in mind, we have got inside.</p>
+              <ul class="ftco list-unstyled float-md-left float-lft mt-5">
+                <li class="ftco-animate"><a href="http:\\www.twitter.com" target="_blank"><i class="fab fa-twitter" style="font-size: 30px"></i></a>&nbsp;&nbsp;&nbsp;<a href="http:\\www.facebook.com" target="_blank"><i class="fab fa-facebook" style="font-size: 30px"></i></a>&nbsp;&nbsp;&nbsp;<a href="http:\\www.instagram.com" target="_blank"><i class="fab fa-instagram" style="font-size: 30px"></i></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4 ml-md-5">
+              <h2 class="ftco-heading-2">Menu</h2>
+              <ul class="list-unstyled">
+                <li><a href="#featuredProducts" class="py-2 d-block">Featured Products</a></li>
+                <li><a href="#offerZone" class="py-2 d-block">Offer Zone</a></li>
+                <li><a href="#Products" class="py-2 d-block">Products</a></li>
+                <li><a href="#loginModal" class="py-2 d-block" data-toggle="modal" onclick="loginModal()">Register/Login</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-4">
+             <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Help</h2>
+              <div class="d-flex">
+                  <ul class="list-unstyled mr-l-5 pr-l-3 mr-4">
+                    <li><a href="#" class="py-2 d-block">Shipping Information</a></li>
+                    <li><a href="#" class="py-2 d-block">Returns &amp; Exchange</a></li>
+                    <li><a href="#" class="py-2 d-block">Terms &amp; Conditions</a></li>
+                    <li><a href="#" class="py-2 d-block">Privacy Policy</a></li>
+                  </ul>
+                  <ul class="list-unstyled">
+                    <li><a href="#" class="py-2 d-block">FAQs</a></li>
+                    <li><a href="#" class="py-2 d-block">Contact</a></li>
+                  </ul>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-center">
+
+            <p>Copyright &copy;2020 All rights reserved</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/jquery.animateNumber.min.js"></script>
+  <script src="js/scrollax.min.js"></script>
+  <script src="js/main.js"></script>
+
+  <script type="text/javascript">
+			$('.owl-carousel').owlCarousel({
+
+        loop:true,
+        // margin: 10,
+        nav: true,
+        mouseDrag: true,
+        touchDrag: false,
+        autoplay: true,
+        duration:3000,
+        navContainer: 'controls-class',
+        dots: false,
+        navText: ['', ''],
+        responsive: {
+          0: {
+            mouseDrag: false,
+            touchDrag: true
+          },
+          600: {
+            mouseDrag: false,
+            touchDrag: true
+          },
+          1000: {
+        
+          }
+        }
+})
+		</script>
+
+  <script type="text/javascript">
+    function loginClose(){
+        $("#loginModal").modal("hide");
+        $("#signupModal").modal("show");
+    }
+
+    function showCart(){
+        $("#cartModal").modal("show");
+    }
+
+    function loginSubmit(){
+
+        var email = document.getElementById('loginEmail').value;
+        var pass = document.getElementById('loginPwd').value;
+
+        if(email == "arpit.sh95@gmail.com" && pass == "123456")
+        {
+        alert("Signed In") ; 
+        }   
+        else    
+        alert("Email/Password Mismatch") ;   
+    }
+
+  </script>
+  <script type="text/javascript">
+
+  </script>
+  </body>
+</html>
