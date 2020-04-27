@@ -1,0 +1,111 @@
+html {  
+  scroll-behavior: smooth;
+}
+
+.inputSearch{
+  width: 60%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 15px;
+  background-color: white;
+  background-position: 10px 5px; 
+  background-repeat: no-repeat;
+  padding: 5px;
+  margin-top: 8px;
+  transition: width 0.4s ease-in-out;
+}
+
+.inputSearch:focus {
+  width: 80%;
+}
+
+.navbar-collapse a:hover{ 
+text-decoration:none;
+display:inline-block;
+text-transform:uppercase;
+color:#fff;
+border:1px solid #fff;
+background-color:transparent;
+opacity:0;
+filter:alpha(opacity=0);
+-webkit-transition:all .2s ease-in-out;
+transition:all .2s ease-in-out;
+padding:7px 14px;
+}
+
+.carousel-caption { /*...............*/
+width:200px;
+z-index:10;
+text-align:left;
+top:50%;
+left:25%;
+bottom:auto;
+-webkit-transform:translate(0, -50%);
+-ms-transform:translate(0, -50%);
+transform:translate(0, -50%);
+}
+
+.offerStyle{
+    border: 2px solid #000;
+    background-color: white;
+    font-family: 'Girassol', cursive;
+    text-shadow: 1px 1px;
+}
+
+.productStyle{
+    font-family: 'Girassol';
+    border: 2px solid #000;
+    text-shadow: 1px 1px;
+}
+
+.parallax { 
+  background-image: url(image1.jpg);
+  min-height: 150px;
+  width: 100%; 
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.filter{
+  		font-size: 20px;
+  		color:black;
+  		font-family: 'Girassol';
+  		/*padding-left: 20px;*/
+  	}	
+  	.filter1{
+  		font-size: 25px;
+  		color:black;
+  		font-family: 'Girassol';
+  		/*padding-left: 20px;*/
+  	}	
+    .specs{
+      font-size: 20px;
+      font-family: 'Comic Neue', cursive;
+    }
+    .checked {
+  color: orange;
+}
+
+  	.home-slider {
+    touch-action: auto;
+    -ms-touch-action: auto;
+    }
+    
+    .card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+
+
+
+
+
